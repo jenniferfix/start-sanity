@@ -72,10 +72,12 @@ export interface MarkdownFaqCategory {
 }
 
 export interface MarkdownTestimonial {
+  _key?: string | null;
   eyebrow?: string | null;
   quote?: PortableTextValue;
   authorName?: string | null;
   authorRole?: string | null;
+  company?: string | null;
 }
 
 export interface MarkdownVideoVariant {
@@ -117,6 +119,7 @@ export interface MarkdownBlock {
   socials?: MarkdownSocial[] | null;
   video?: MarkdownVideo | null;
   testimonial?: MarkdownTestimonial | null;
+  testimonials?: MarkdownTestimonial[] | null;
 }
 
 /** Joins defined, non-empty sections with a blank line between them. */

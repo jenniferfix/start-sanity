@@ -159,3 +159,28 @@ test("separates blocks with a blank line", () => {
 
   expect(md).toBe("## One\n\n## Two");
 });
+
+test("dispatches a testimonials block to its serializer", () => {
+  const md = pageBuilderToMarkdown([
+    {
+      _type: "testimonials",
+      eyebrow: "Customers",
+      title: "What teams say",
+      testimonials: [
+        {
+          _key: "q1",
+          quote: para("It shipped in a week."),
+          authorName: "Jane Doe",
+          authorRole: "Head of Design",
+          company: "Acme Inc",
+        },
+      ],
+    },
+  ]);
+
+  expect(md).toContain("**Customers**");
+  expect(md).toContain("## What teams say");
+  expect(md).toContain("> It shipped in a week.");
+  expect(md).toContain("> — Jane Doe, Head of Design, Acme Inc");
+  expect(md).not.toMatch(/<\/?[A-Za-z]/);
+});

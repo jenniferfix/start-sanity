@@ -11,6 +11,7 @@ import { RichTextBlock } from "@workspace/sanity-blocks/rich-text-block/index";
 import { ShowcaseGrid } from "@workspace/sanity-blocks/showcase-grid/index";
 import { SocialGrid } from "@workspace/sanity-blocks/social-grid/index";
 import { SubscribeNewsletter } from "@workspace/sanity-blocks/subscribe-newsletter/index";
+import { Testimonials } from "@workspace/sanity-blocks/testimonials/index";
 import { VideoFeature } from "@workspace/sanity-blocks/video-feature/index";
 import { cn } from "@workspace/tailwind-config/utils";
 import { createDataAttribute } from "next-sanity";
@@ -74,6 +75,8 @@ function renderBlockComponent(
       return <RichTextBlock {...(block as PagebuilderType<"richTextBlock">)} />;
     case "videoFeature":
       return <VideoFeature {...(block as PagebuilderType<"videoFeature">)} />;
+    case "testimonials":
+      return <Testimonials {...(block as PagebuilderType<"testimonials">)} />;
     default:
       return null;
   }

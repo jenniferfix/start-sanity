@@ -7,6 +7,7 @@ import { richTextBlockSchema } from "./rich-text-block/rich-text-block.schema";
 import { showcaseGridSchema } from "./showcase-grid/showcase-grid.schema";
 import { socialGridSchema } from "./social-grid/social-grid.schema";
 import { subscribeNewsletterSchema } from "./subscribe-newsletter/subscribe-newsletter.schema";
+import { testimonialsSchema } from "./testimonials/testimonials.schema";
 import { videoFeatureSchema } from "./video-feature/video-feature.schema";
 
 export { ctaSchema } from "./cta/cta.schema";
@@ -18,6 +19,7 @@ export { richTextBlockSchema } from "./rich-text-block/rich-text-block.schema";
 export { showcaseGridSchema } from "./showcase-grid/showcase-grid.schema";
 export { socialGridSchema } from "./social-grid/social-grid.schema";
 export { subscribeNewsletterSchema } from "./subscribe-newsletter/subscribe-newsletter.schema";
+export { testimonialsSchema } from "./testimonials/testimonials.schema";
 export { videoFeatureSchema } from "./video-feature/video-feature.schema";
 
 export const blockSchemas = [
@@ -31,4 +33,5 @@ export const blockSchemas = [
   richTextBlockSchema,
   subscribeNewsletterSchema,
   videoFeatureSchema,
+  testimonialsSchema,
 ];

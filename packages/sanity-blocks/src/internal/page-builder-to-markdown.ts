@@ -10,6 +10,7 @@ import { richTextBlockToMarkdown } from "../rich-text-block/markdown";
 import { showcaseGridToMarkdown } from "../showcase-grid/markdown";
 import { socialGridToMarkdown } from "../social-grid/markdown";
 import { subscribeNewsletterToMarkdown } from "../subscribe-newsletter/markdown";
+import { testimonialsToMarkdown } from "../testimonials/markdown";
 import { videoFeatureToMarkdown } from "../video-feature/markdown";
 import type { MarkdownBlock, MarkdownOptions } from "./markdown";
 
@@ -41,6 +42,8 @@ function blockToMarkdown(
       return subscribeNewsletterToMarkdown(block, options);
     case "videoFeature":
       return videoFeatureToMarkdown(block, options);
+    case "testimonials":
+      return testimonialsToMarkdown(block, options);
     default:
       return "";
   }

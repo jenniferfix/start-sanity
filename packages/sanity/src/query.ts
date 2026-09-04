@@ -7,6 +7,7 @@ import { richTextBlockGroqProjection } from "@workspace/sanity-blocks/rich-text-
 import { showcaseGridGroqProjection } from "@workspace/sanity-blocks/showcase-grid/showcase-grid.groq";
 import { socialGridGroqProjection } from "@workspace/sanity-blocks/social-grid/social-grid.groq";
 import { subscribeNewsletterGroqProjection } from "@workspace/sanity-blocks/subscribe-newsletter/subscribe-newsletter.groq";
+import { testimonialsGroqProjection } from "@workspace/sanity-blocks/testimonials/testimonials.groq";
 import { videoFeatureGroqProjection } from "@workspace/sanity-blocks/video-feature/video-feature.groq";
 import { defineQuery } from "next-sanity";
 
@@ -138,7 +139,8 @@ const pageBuilderFragment = /* groq */ `
     ${socialGridGroqProjection},
     ${showcaseGridGroqProjection},
     ${richTextBlockGroqProjection},
-    ${videoFeatureGroqProjection}
+    ${videoFeatureGroqProjection},
+    ${testimonialsGroqProjection}
   }
 `;
 

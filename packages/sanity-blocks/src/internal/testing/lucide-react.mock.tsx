@@ -37,3 +37,4 @@ export const Users = IconStub("users");
 export const X = IconStub("x");
 export const Youtube = IconStub("youtube");
 export const Play = IconStub("play");
+export const Quote = IconStub("quote");

@@ -98,7 +98,20 @@ export interface MarkdownVideo extends MuxVideoData {
   dark?: MarkdownVideoVariant | null;
 }
 
+export interface MarkdownPricingPlan {
+  _key?: string | null;
+  name?: string | null;
+  description?: string | null;
+  priceLabel?: string | null;
+  billingLabel?: string | null;
+  badge?: string | null;
+  features?: string[] | null;
+  buttons?: MarkdownButton[] | null;
+}
+
 export interface MarkdownBlock {
+  plans?: MarkdownPricingPlan[] | null;
+  footnote?: string | null;
   _type?: string;
   _key?: string;
   title?: string | null;

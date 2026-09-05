@@ -3,6 +3,7 @@ import { faqAccordionGroqProjection } from "@workspace/sanity-blocks/faq-accordi
 import { featureCardsIconGroqProjection } from "@workspace/sanity-blocks/feature-cards-icon/feature-cards-icon.groq";
 import { heroGroqProjection } from "@workspace/sanity-blocks/hero/hero.groq";
 import { logoCloudGroqProjection } from "@workspace/sanity-blocks/logo-cloud/logo-cloud.groq";
+import { pricingGroqProjection } from "@workspace/sanity-blocks/pricing/pricing.groq";
 import { richTextBlockGroqProjection } from "@workspace/sanity-blocks/rich-text-block/rich-text-block.groq";
 import { showcaseGridGroqProjection } from "@workspace/sanity-blocks/showcase-grid/showcase-grid.groq";
 import { socialGridGroqProjection } from "@workspace/sanity-blocks/social-grid/social-grid.groq";
@@ -136,6 +137,7 @@ const pageBuilderFragment = /* groq */ `
     ${featureCardsIconGroqProjection},
     ${subscribeNewsletterGroqProjection},
     ${logoCloudGroqProjection},
+    ${pricingGroqProjection},
     ${socialGridGroqProjection},
     ${showcaseGridGroqProjection},
     ${richTextBlockGroqProjection},

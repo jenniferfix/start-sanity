@@ -1,9 +1,9 @@
 "use client";
 
+import { PlayIcon } from "@phosphor-icons/react/dist/ssr/Play";
 import { cn } from "@workspace/tailwind-config/utils";
-import { Play } from "lucide-react";
-import { stegaClean } from "next-sanity";
 import dynamic from "next/dynamic";
+import { stegaClean } from "next-sanity";
 import { useState } from "react";
 
 import {
@@ -107,7 +107,7 @@ export function MuxVideo({
           type="button"
         >
           <span className="grid size-14 place-items-center rounded-full bg-background/80 text-foreground backdrop-blur transition group-hover:scale-105 group-hover:bg-background">
-            <Play className="size-6 translate-x-px fill-current" />
+            <PlayIcon weight="fill" className="size-6 translate-x-px" />
           </span>
         </button>
       )}

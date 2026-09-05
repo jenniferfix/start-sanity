@@ -1,9 +1,9 @@
+import { FileTextIcon } from "@phosphor-icons/react/dist/csr/FileText";
 import {
   orderRankField,
   orderRankOrdering,
 } from "@sanity/orderable-document-list";
 import { BLOG_CATEGORY_OPTIONS } from "@workspace/sanity-blocks/internal/blog-categories";
-import { FileText } from "lucide-react";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 import { documentSlugField, imageWithAltField } from "@/schemaTypes/common";
@@ -17,7 +17,7 @@ export const blog = defineType({
   title: "Blog",
   description:
     "A blog post that will be published on the website. Add a title, description, author, and content to create a new article for readers.",
-  icon: FileText,
+  icon: FileTextIcon,
   groups: GROUPS,
   orderings: [orderRankOrdering],
   fields: [

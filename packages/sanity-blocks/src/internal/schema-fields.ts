@@ -1,4 +1,4 @@
-import { Images } from "lucide-react";
+import { ImagesIcon } from "@phosphor-icons/react/dist/ssr/Images";
 import {
   type ConditionalProperty,
   defineArrayMember,
@@ -22,7 +22,7 @@ export const buttonsField = defineField({
 
 export const iconField = defineField({
   name: "icon",
-  type: "lucide-icon",
+  type: "phosphor-icon",
   title: "Icon",
   description:
     "Choose a small picture symbol to represent this item, like a home icon or shopping cart",
@@ -79,7 +79,7 @@ export const logoLinkItem = (name: string) =>
   defineArrayMember({
     name,
     type: "object",
-    icon: Images,
+    icon: ImagesIcon,
     fields: [
       imageWithAltField({
         title: "Logo",

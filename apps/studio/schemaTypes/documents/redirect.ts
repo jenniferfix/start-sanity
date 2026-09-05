@@ -1,4 +1,4 @@
-import { TrendingUpDown } from "lucide-react";
+import { ArrowBendUpRightIcon } from "@phosphor-icons/react/dist/csr/ArrowBendUpRight";
 import type { SanityClient, SlugValue } from "sanity";
 import { defineField, defineType, getDraftId, getPublishedId } from "sanity";
 
@@ -35,7 +35,7 @@ export const redirect = defineType({
   type: "document",
   title: "Redirect",
   description: "Redirect for next.config.js",
-  icon: TrendingUpDown,
+  icon: ArrowBendUpRightIcon,
   fields: [
     defineField({
       name: "status",
@@ -142,7 +142,7 @@ export const redirect = defineType({
     prepare: ({ title, subtitle, permanent, status }) => ({
       title: `${title ?? "Untitled"} to ${subtitle ?? "Untitled"}`,
       subtitle: `${permanent ? "Permanent" : "Temporary"}, ${status}`,
-      media: TrendingUpDown,
+      media: ArrowBendUpRightIcon,
     }),
   },
 });

@@ -1,10 +1,10 @@
-import { MessageCircle } from "lucide-react";
+import { ChatCircleIcon } from "@phosphor-icons/react/dist/ssr/ChatCircle";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const faqAccordionSchema = defineType({
   name: "faqAccordion",
   type: "object",
-  icon: MessageCircle,
+  icon: ChatCircleIcon,
   fields: [
     defineField({
       name: "eyebrow",

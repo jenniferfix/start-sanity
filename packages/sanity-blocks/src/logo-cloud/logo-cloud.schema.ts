@@ -1,5 +1,5 @@
+import { ImagesIcon } from "@phosphor-icons/react/dist/ssr/Images";
 import { logoLinkItem } from "@workspace/sanity-blocks/internal/schema-fields";
-import { Images } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
 const logoCloudItem = logoLinkItem("logoCloudItem");
@@ -8,7 +8,7 @@ export const logoCloudSchema = defineType({
   name: "logoCloud",
   type: "object",
   title: "Logo Cloud",
-  icon: Images,
+  icon: ImagesIcon,
   fields: [
     defineField({
       name: "logos",

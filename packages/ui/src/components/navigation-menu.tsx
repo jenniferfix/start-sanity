@@ -1,9 +1,9 @@
 "use client";
 
 import { NavigationMenu as NavMenuPrimitive } from "@base-ui/react/navigation-menu";
+import { CaretDownIcon } from "@phosphor-icons/react/dist/ssr/CaretDown";
 import { cn } from "@workspace/tailwind-config/utils";
 import { cva } from "class-variance-authority";
-import { ChevronDown } from "lucide-react";
 import type * as React from "react";
 
 function NavigationMenu({
@@ -91,7 +91,7 @@ function NavigationMenuTrigger({
       {...props}
     >
       {children}{" "}
-      <ChevronDown
+      <CaretDownIcon
         aria-hidden="true"
         className="relative top-px ml-1 size-3 transition duration-300 group-data-popup-open:rotate-180"
       />

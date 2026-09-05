@@ -1,8 +1,8 @@
 "use client";
 
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
+import { CaretDownIcon } from "@phosphor-icons/react/dist/ssr/CaretDown";
 import { cn } from "@workspace/tailwind-config/utils";
-import { ChevronDownIcon } from "lucide-react";
 import type * as React from "react";
 
 function Accordion({
@@ -40,7 +40,7 @@ function AccordionTrigger({
         {...props}
       >
         {children}
-        <ChevronDownIcon
+        <CaretDownIcon
           aria-hidden="true"
           className="pointer-events-none size-4 shrink-0 translate-y-0.5 text-muted-foreground transition-transform duration-200 motion-reduce:transition-none"
         />

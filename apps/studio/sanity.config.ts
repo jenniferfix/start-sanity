@@ -1,4 +1,3 @@
-import { lucideIconPicker } from "@robotostudio/sanity-plugin-lucide-icon-picker";
 import { assist } from "@sanity/assist";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
@@ -10,6 +9,7 @@ import { muxInput } from "sanity-plugin-mux-input";
 
 import { Logo } from "@/components/logo";
 import { locations } from "@/location";
+import { phosphorIconPicker } from "@/plugins/phosphor-icon-picker";
 import { presentationUrl } from "@/plugins/presentation-url";
 import { schemaTypes, singletonTypes } from "@/schemaTypes/index";
 import { structure } from "@/structure";
@@ -54,7 +54,7 @@ export default defineConfig({
     }),
     presentationUrl(),
     visionTool(),
-    lucideIconPicker(),
+    phosphorIconPicker(),
     unsplashImageAsset(),
     media(),
     // Plugin defaults: `video_quality: "plus"`, 1080p ceiling, public

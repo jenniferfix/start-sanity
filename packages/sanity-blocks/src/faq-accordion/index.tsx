@@ -1,11 +1,12 @@
 "use client";
 
+import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
+import { PlusIcon } from "@phosphor-icons/react/dist/ssr/Plus";
 import { BlockEyebrow } from "@workspace/sanity-blocks/internal/block-eyebrow";
 import type { RichTextValue } from "@workspace/sanity-blocks/internal/rich-text";
 import { RichText } from "@workspace/sanity-blocks/internal/rich-text";
 import { useDisclosureAnimation } from "@workspace/sanity-blocks/internal/use-disclosure-animation";
 import { cn } from "@workspace/tailwind-config/utils";
-import { ArrowUpRight, Plus } from "lucide-react";
 import Link from "next/link";
 import { type MouseEvent as ReactMouseEvent, useState } from "react";
 
@@ -88,7 +89,7 @@ function FaqDisclosure({
         <h3 className="font-medium text-foreground text-lg leading-6">
           {faq.title}
         </h3>
-        <Plus
+        <PlusIcon
           className={cn(
             "pointer-events-none size-5 shrink-0 text-foreground transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] motion-reduce:transition-none dark:text-accent-green",
             isOpen && "rotate-45"
@@ -239,7 +240,7 @@ function FaqContactLink({ link }: Readonly<{ link: FaqLink }>) {
           </p>
         )}
         <span className="flex items-center justify-center overflow-hidden rounded-full bg-accent-green p-1.5 text-accent-green-foreground">
-          <ArrowUpRight
+          <ArrowUpRightIcon
             className="transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:rotate-45"
             size={14}
           />

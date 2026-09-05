@@ -1,15 +1,15 @@
+import { EnvelopeIcon } from "@phosphor-icons/react/dist/ssr/Envelope";
 import {
   definePortableTextField,
   imageWithAltField,
 } from "@workspace/sanity-blocks/internal/schema-fields";
-import { Mail } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
 export const subscribeNewsletterSchema = defineType({
   name: "subscribeNewsletter",
   type: "object",
   title: "Subscribe Newsletter",
-  icon: Mail,
+  icon: EnvelopeIcon,
   fields: [
     defineField({
       name: "title",

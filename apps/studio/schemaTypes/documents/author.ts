@@ -1,4 +1,4 @@
-import { User } from "lucide-react";
+import { UserIcon } from "@phosphor-icons/react/dist/csr/User";
 import { defineField, defineType } from "sanity";
 
 import { imageWithAltField } from "@/schemaTypes/common";
@@ -7,7 +7,7 @@ export const author = defineType({
   name: "author",
   type: "document",
   title: "Author",
-  icon: User,
+  icon: UserIcon,
   fields: [
     defineField({
       name: "name",

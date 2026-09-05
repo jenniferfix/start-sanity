@@ -1,4 +1,4 @@
-import { TriangleAlert } from "lucide-react";
+import { WarningIcon } from "@phosphor-icons/react/dist/ssr/Warning";
 import { createElement, type ReactNode } from "react";
 
 import { isSafeHref } from "./safe-href";
@@ -138,7 +138,7 @@ export const renderButtons = (buttons?: ButtonValue[] | null) => {
 
 export const IconBadge = ({ name }: { name?: string | null }) => {
   if (!name) {
-    return <TriangleAlert size={16} />;
+    return <WarningIcon size={16} />;
   }
 
   return <span>{name}</span>;

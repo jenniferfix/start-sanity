@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr/ArrowRight";
 import { BlockHeader } from "@workspace/sanity-blocks/internal/block-header";
 import {
   FacebookIcon,
@@ -14,9 +15,8 @@ import {
   SanityImage,
   type SanityImageData,
 } from "@workspace/sanity-blocks/internal/sanity-image";
-import { ArrowRight } from "lucide-react";
-import { stegaClean } from "next-sanity";
 import Link from "next/link";
+import { stegaClean } from "next-sanity";
 import type { ComponentType } from "react";
 
 export interface SocialGridItem {
@@ -100,7 +100,7 @@ function SocialCard({ social }: Readonly<{ social: SocialGridItem }>) {
       <span className="absolute bottom-2 left-2 flex max-w-[calc(100%-1rem)] items-center bg-background px-[5px] py-[4px] font-light sm:py-[2.5px] font-mono text-foreground text-sm uppercase leading-none transition-colors duration-200 group-hover:bg-black group-hover:text-white dark:group-hover:bg-background dark:group-hover:text-foreground">
         <span className="min-w-0 truncate">{displayLabel}</span>
         {href ? (
-          <ArrowRight
+          <ArrowRightIcon
             aria-hidden="true"
             className="h-4 w-0 shrink-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:ml-1 group-hover:w-4 group-hover:opacity-100"
           />

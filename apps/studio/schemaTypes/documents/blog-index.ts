@@ -1,4 +1,4 @@
-import { BookMarked } from "lucide-react";
+import { BookBookmarkIcon } from "@phosphor-icons/react/dist/csr/BookBookmark";
 import { defineField, defineType } from "sanity";
 
 import { documentSlugField, pageBuilderField } from "@/schemaTypes/common";
@@ -12,7 +12,7 @@ export const blogIndex = defineType({
   title: "Blog Listing Page",
   description:
     "This is the main page that shows all your blog posts. You can customize how your blog listing page looks, what title it has, and which blog post you want to highlight at the top.",
-  icon: BookMarked,
+  icon: BookBookmarkIcon,
   groups: GROUPS,
   fields: [
     defineField({

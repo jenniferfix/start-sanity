@@ -1,7 +1,9 @@
-import { LayoutPanelLeft, Link, PanelTop } from "lucide-react";
+import { BrowserIcon } from "@phosphor-icons/react/dist/csr/Browser";
+import { ColumnsIcon } from "@phosphor-icons/react/dist/csr/Columns";
+import { LinkIcon } from "@phosphor-icons/react/dist/csr/Link";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
-import { lucideIconPreview } from "@/components/icon-preview";
+import { phosphorIconPreview } from "@/components/icon-preview";
 import { buttonsField, iconField } from "@/schemaTypes/common";
 
 const navbarLink = defineArrayMember({
@@ -9,7 +11,7 @@ const navbarLink = defineArrayMember({
   type: "object",
   title: "Navigation Link",
   description: "Individual navigation link with name and URL",
-  icon: Link,
+  icon: LinkIcon,
   fields: [
     defineField({
       name: "name",
@@ -41,7 +43,7 @@ const navbarLink = defineArrayMember({
       return {
         title: title || "Untitled Link",
         subtitle: `${urlType === "external" ? "External" : "Internal"} • ${truncatedUrl}${newTabIndicator}`,
-        media: Link,
+        media: LinkIcon,
       };
     },
   },
@@ -52,7 +54,7 @@ const navbarColumnLink = defineArrayMember({
   type: "object",
   title: "Navigation Column Link",
   description: "A link within a navigation column",
-  icon: LayoutPanelLeft,
+  icon: ColumnsIcon,
   fields: [
     iconField,
     defineField({
@@ -92,7 +94,7 @@ const navbarColumnLink = defineArrayMember({
       return {
         title: title || "Untitled Link",
         subtitle: `${urlType === "external" ? "External" : "Internal"} • ${truncatedUrl}${newTabIndicator}`,
-        media: lucideIconPreview(icon),
+        media: phosphorIconPreview(icon),
       };
     },
   },
@@ -103,7 +105,7 @@ const navbarColumn = defineArrayMember({
   type: "object",
   title: "Navigation Column",
   description: "A column of navigation links with an optional title",
-  icon: LayoutPanelLeft,
+  icon: ColumnsIcon,
   fields: [
     defineField({
       name: "title",
@@ -140,7 +142,7 @@ export const navbar = defineType({
   type: "document",
   title: "Site Navigation",
   description: "Configure the main navigation structure for your site",
-  icon: PanelTop,
+  icon: BrowserIcon,
   fields: [
     defineField({
       name: "label",

@@ -1,4 +1,7 @@
-import { BadgeCheck, LayoutPanelLeft, Link, PanelBottom } from "lucide-react";
+import { AlignBottomIcon } from "@phosphor-icons/react/dist/csr/AlignBottom";
+import { ColumnsIcon } from "@phosphor-icons/react/dist/csr/Columns";
+import { LinkIcon } from "@phosphor-icons/react/dist/csr/Link";
+import { SealCheckIcon } from "@phosphor-icons/react/dist/csr/SealCheck";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 import { imageWithAltField } from "@/schemaTypes/common";
@@ -8,7 +11,7 @@ const footerCreditItem = defineArrayMember({
   type: "object",
   title: "Footer Credit",
   description: "A short 'made with' style credit shown in the footer bar",
-  icon: BadgeCheck,
+  icon: SealCheckIcon,
   fields: [
     defineField({
       name: "label",
@@ -41,7 +44,7 @@ const footerColumnLink = defineArrayMember({
   type: "object",
   title: "Footer Link",
   description: "A single link inside a footer column",
-  icon: Link,
+  icon: LinkIcon,
   fields: [
     defineField({
       name: "name",
@@ -73,7 +76,7 @@ const footerColumnLink = defineArrayMember({
       return {
         title: title || "Untitled Link",
         subtitle: `${urlType === "external" ? "External" : "Internal"} • ${truncatedUrl}${newTabIndicator}`,
-        media: Link,
+        media: LinkIcon,
       };
     },
   },
@@ -84,7 +87,7 @@ const footerColumn = defineArrayMember({
   type: "object",
   title: "Footer Column",
   description: "A group of footer links shown under a shared heading",
-  icon: LayoutPanelLeft,
+  icon: ColumnsIcon,
   fields: [
     defineField({
       name: "title",
@@ -119,7 +122,7 @@ export const footer = defineType({
   type: "document",
   title: "Footer",
   description: "Footer content for your website",
-  icon: PanelBottom,
+  icon: AlignBottomIcon,
   fields: [
     defineField({
       name: "label",
@@ -164,7 +167,7 @@ export const footer = defineType({
     },
     prepare: ({ title }) => ({
       title: title || "Untitled Footer",
-      media: PanelBottom,
+      media: AlignBottomIcon,
     }),
   },
 });

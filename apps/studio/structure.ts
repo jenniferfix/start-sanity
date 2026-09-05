@@ -1,18 +1,16 @@
+import type { Icon } from "@phosphor-icons/react";
+import { AlignBottomIcon } from "@phosphor-icons/react/dist/csr/AlignBottom";
+import { ArrowBendUpRightIcon } from "@phosphor-icons/react/dist/csr/ArrowBendUpRight";
+import { BookBookmarkIcon } from "@phosphor-icons/react/dist/csr/BookBookmark";
+import { BrowserIcon } from "@phosphor-icons/react/dist/csr/Browser";
+import { ChatCircleIcon } from "@phosphor-icons/react/dist/csr/ChatCircle";
+import { FileIcon } from "@phosphor-icons/react/dist/csr/File";
+import { FileTextIcon } from "@phosphor-icons/react/dist/csr/FileText";
+import { GearIcon } from "@phosphor-icons/react/dist/csr/Gear";
+import { HouseIcon } from "@phosphor-icons/react/dist/csr/House";
+import { SlidersHorizontalIcon } from "@phosphor-icons/react/dist/csr/SlidersHorizontal";
+import { UserIcon } from "@phosphor-icons/react/dist/csr/User";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
-import {
-  BookMarked,
-  Cog,
-  File,
-  FileText,
-  House,
-  type LucideIcon,
-  MessageCircle,
-  PanelBottom,
-  PanelTop,
-  Settings2,
-  TrendingUpDown,
-  User,
-} from "lucide-react";
 import type {
   StructureBuilder,
   StructureResolverContext,
@@ -27,7 +25,7 @@ type Base<T = SchemaType> = {
   type: T;
   preview?: boolean;
   title?: string;
-  icon?: LucideIcon;
+  icon?: Icon;
 };
 
 type CreateSingleTon = {
@@ -38,7 +36,7 @@ const createSingleTon = ({ S, type, title, icon }: CreateSingleTon) => {
   const newTitle = title ?? getTitleCase(type);
   return S.listItem()
     .title(newTitle)
-    .icon(icon ?? File)
+    .icon(icon ?? FileIcon)
     .child(S.document().schemaType(type).documentId(type));
 };
 
@@ -51,7 +49,7 @@ const createList = ({ S, type, icon, title, id }: CreateList) => {
   return S.documentTypeListItem(type)
     .id(id ?? type)
     .title(newTitle)
-    .icon(icon ?? File);
+    .icon(icon ?? FileIcon);
 };
 
 type CreateIndexList = {
@@ -71,14 +69,14 @@ const createIndexListWithOrderableItems = ({
   const listTitle = list.title ?? getTitleCase(list.type);
   return S.listItem()
     .title(listTitle)
-    .icon(index.icon ?? File)
+    .icon(index.icon ?? FileIcon)
     .child(
       S.list()
         .title(indexTitle)
         .items([
           S.listItem()
             .title(indexTitle)
-            .icon(index.icon ?? File)
+            .icon(index.icon ?? FileIcon)
             .child(
               S.document()
                 .views([S.view.form()])
@@ -89,7 +87,7 @@ const createIndexListWithOrderableItems = ({
             type: list.type,
             S,
             context,
-            icon: list.icon ?? File,
+            icon: list.icon ?? FileIcon,
             title: `${listTitle}`,
           }),
         ])
@@ -103,32 +101,32 @@ export const structure = (
   S.list()
     .title("Content")
     .items([
-      createSingleTon({ S, type: "homePage", icon: House }),
+      createSingleTon({ S, type: "homePage", icon: HouseIcon }),
       S.divider(),
       createSlugBasedStructure(S, "page"),
       createIndexListWithOrderableItems({
         S,
-        index: { type: "blogIndex", icon: BookMarked },
-        list: { type: "blog", title: "Blogs", icon: FileText },
+        index: { type: "blogIndex", icon: BookBookmarkIcon },
+        list: { type: "blog", title: "Blogs", icon: FileTextIcon },
         context,
       }),
       createList({
         S,
         type: "faq",
         title: "FAQs",
-        icon: MessageCircle,
+        icon: ChatCircleIcon,
       }),
-      createList({ S, type: "author", title: "Authors", icon: User }),
+      createList({ S, type: "author", title: "Authors", icon: UserIcon }),
       createList({
         S,
         type: "redirect",
         title: "Redirects",
-        icon: TrendingUpDown,
+        icon: ArrowBendUpRightIcon,
       }),
       S.divider(),
       S.listItem()
         .title("Site Configuration")
-        .icon(Settings2)
+        .icon(SlidersHorizontalIcon)
         .child(
           S.list()
             .title("Site Configuration")
@@ -137,19 +135,19 @@ export const structure = (
                 S,
                 type: "navbar",
                 title: "Navigation",
-                icon: PanelTop,
+                icon: BrowserIcon,
               }),
               createSingleTon({
                 S,
                 type: "footer",
                 title: "Footer",
-                icon: PanelBottom,
+                icon: AlignBottomIcon,
               }),
               createSingleTon({
                 S,
                 type: "settings",
                 title: "Global Settings",
-                icon: Cog,
+                icon: GearIcon,
               }),
             ])
         ),

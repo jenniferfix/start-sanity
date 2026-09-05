@@ -169,9 +169,11 @@ All frontend types derive from generated Sanity types. `apps/web/src/types.ts` e
 
 - Always use `defineType`, `defineField`, `defineArrayMember` from `sanity`
 - Include `description` on every field (written for non-technical users)
-- Icons: block schemas use `lucide-react` (all ten do) — stub any new one in
-  `sanity-blocks/src/internal/testing/lucide-react.mock.tsx`. `@sanity/icons` is
-  for Studio UI and Portable Text config
+- Icons: use `@phosphor-icons/react` with individual `dist/ssr/<Name>` imports
+  for shared components and `dist/csr/<Name>` imports in Studio. CMS icon
+  fields use the Phosphor picker. Regenerate its loaders with
+  `pnpm --filter @workspace/sanity-blocks generate-icons` after upgrading Phosphor.
+  `@sanity/icons` is for Studio UI and Portable Text config.
 - GROQ: don't expand images unless explicitly needed. Use `defineQuery` from `next-sanity`
 
 ### Frontend

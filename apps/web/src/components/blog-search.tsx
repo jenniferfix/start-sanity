@@ -1,8 +1,9 @@
 "use client";
 
+import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr/MagnifyingGlass";
+import { XIcon } from "@phosphor-icons/react/dist/ssr/X";
 import { cn } from "@workspace/tailwind-config/utils";
 import { Input } from "@workspace/ui/components/input";
-import { Search, X } from "lucide-react";
 
 export function SearchInput({
   className,
@@ -25,7 +26,7 @@ export function SearchInput({
         </label>
 
         <div className="relative">
-          <Search
+          <MagnifyingGlassIcon
             aria-hidden="true"
             className="-translate-y-1/2 pointer-events-none absolute top-1/2 left-3 size-4 text-muted-foreground"
           />
@@ -45,7 +46,7 @@ export function SearchInput({
               onClick={onClear}
               type="button"
             >
-              <X className="size-4" />
+              <XIcon className="size-4" />
             </button>
           )}
         </div>

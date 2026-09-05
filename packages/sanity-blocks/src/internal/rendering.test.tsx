@@ -1,3 +1,4 @@
+import { WarningIcon } from "@phosphor-icons/react/dist/ssr/Warning";
 import {
   getHref,
   IconBadge,
@@ -6,9 +7,9 @@ import {
   renderOptionalHeading,
   renderPortableText,
 } from "@workspace/sanity-blocks/internal/rendering";
-import { TriangleAlert } from "lucide-react";
-import { DynamicIcon } from "lucide-react/dynamic";
 import { renderToStaticMarkup } from "react-dom/server";
+
+import { PhosphorIcon } from "./phosphor-icon";
 
 test("getHref handles empty, internal, and external URLs", () => {
   expect(getHref()).toBeUndefined();
@@ -181,32 +182,28 @@ test("renderOptionalHeading and IconBadge cover fallback output", () => {
       {renderOptionalHeading("Eyebrow copy", "p")}
       <IconBadge />
       <IconBadge name="boxes" />
-      <TriangleAlert size={24} />
+      <WarningIcon size={24} />
     </>
   );
 
   expect(html).toContain("<h2>Section title</h2>");
   expect(html).toContain("<h3>Question title</h3>");
   expect(html).toContain("<p>Eyebrow copy</p>");
-  expect(html).toContain('data-icon="triangle-alert"');
-  expect(html).toContain('data-size="16"');
-  expect(html).toContain('data-size="24"');
+  expect(html).toContain("<svg");
+  expect(html).toContain('width="16"');
+  expect(html).toContain('width="24"');
   expect(html).toContain("<span>boxes</span>");
 });
 
-test("icon mocks forward extra props", () => {
+test("icons forward accessibility and styling props", () => {
   const html = renderToStaticMarkup(
     <>
-      <TriangleAlert
-        aria-hidden="true"
-        className="icon-stub"
-        data-track="one"
-      />
-      <DynamicIcon
+      <WarningIcon aria-hidden="true" className="icon-stub" data-track="one" />
+      <PhosphorIcon
         aria-label="dynamic icon"
         className="dynamic-icon"
         data-track="two"
-        name="boxes"
+        name="not-an-icon"
         size={20}
       />
     </>

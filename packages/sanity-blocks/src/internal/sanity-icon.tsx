@@ -1,7 +1,7 @@
 import { cn } from "@workspace/tailwind-config/utils";
-import { TriangleAlert } from "lucide-react";
-import { DynamicIcon, type IconName } from "lucide-react/dynamic";
 import type { ComponentProps } from "react";
+
+import { PhosphorIcon } from "./phosphor-icon";
 
 type IconProps = Omit<ComponentProps<"svg">, "src"> & {
   icon?: string | null;
@@ -9,8 +9,6 @@ type IconProps = Omit<ComponentProps<"svg">, "src"> & {
 };
 
 const ICON_SIZE = 24;
-
-const FallbackIcon = () => <TriangleAlert size={ICON_SIZE} />;
 
 export function SanityIcon({
   icon,
@@ -23,14 +21,13 @@ export function SanityIcon({
   }
 
   return (
-    <DynamicIcon
+    <PhosphorIcon
       {...props}
       aria-hidden={alt ? undefined : true}
       aria-label={alt || undefined}
       role={alt ? "img" : undefined}
       className={cn("flex size-12 items-center justify-center", className)}
-      fallback={FallbackIcon}
-      name={icon as IconName}
+      name={icon}
       size={ICON_SIZE}
     />
   );

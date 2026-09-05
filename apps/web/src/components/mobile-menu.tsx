@@ -1,5 +1,7 @@
 "use client";
 
+import { ListIcon } from "@phosphor-icons/react/dist/ssr/List";
+import { XIcon } from "@phosphor-icons/react/dist/ssr/X";
 import { SanityButtons } from "@workspace/sanity-blocks/internal/sanity-buttons";
 import { cn } from "@workspace/tailwind-config/utils";
 import {
@@ -21,7 +23,6 @@ import {
 } from "@workspace/ui/components/base-drawer";
 import { Button } from "@workspace/ui/components/button";
 import { useMediaQuery } from "@workspace/ui/hooks/use-media-query";
-import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -101,7 +102,7 @@ export function MobileMenu({
             size="icon"
             variant="ghost"
           >
-            <Menu className="size-4" />
+            <ListIcon className="size-4" />
             <span className="sr-only">Open menu</span>
           </Button>
         }
@@ -136,7 +137,7 @@ export function MobileMenu({
                       size="icon"
                       variant="ghost"
                     >
-                      <X className="size-4" />
+                      <XIcon className="size-4" />
                       <span className="sr-only">Close</span>
                     </Button>
                   }

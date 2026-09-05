@@ -1,15 +1,15 @@
+import { PlayIcon } from "@phosphor-icons/react/dist/ssr/Play";
 import {
   definePortableTextField,
   muxVideoEmbedField,
 } from "@workspace/sanity-blocks/internal/schema-fields";
-import { Play } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
 export const videoFeatureSchema = defineType({
   name: "videoFeature",
   type: "object",
   title: "Video",
-  icon: Play,
+  icon: PlayIcon,
   fields: [
     defineField({
       name: "eyebrow",

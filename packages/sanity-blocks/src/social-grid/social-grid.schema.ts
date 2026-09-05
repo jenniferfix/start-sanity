@@ -1,5 +1,6 @@
+import { LinkIcon } from "@phosphor-icons/react/dist/ssr/Link";
+import { UsersIcon } from "@phosphor-icons/react/dist/ssr/Users";
 import { imageWithAltField } from "@workspace/sanity-blocks/internal/schema-fields";
-import { Link, Users } from "lucide-react";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 const SOCIAL_PLATFORMS = [
@@ -16,7 +17,7 @@ const SOCIAL_PLATFORMS = [
 const socialGridItem = defineArrayMember({
   name: "socialGridItem",
   type: "object",
-  icon: Link,
+  icon: LinkIcon,
   fields: [
     defineField({
       name: "platform",
@@ -70,7 +71,7 @@ export const socialGridSchema = defineType({
   title: "Social Grid",
   description:
     "A community section with a heading and a row of large cards linking to your social platforms",
-  icon: Users,
+  icon: UsersIcon,
   fields: [
     defineField({
       name: "eyebrow",

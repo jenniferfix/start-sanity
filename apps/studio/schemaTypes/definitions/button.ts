@@ -1,4 +1,4 @@
-import { Command } from "lucide-react";
+import { CommandIcon } from "@phosphor-icons/react/dist/csr/Command";
 import { defineField, defineType } from "sanity";
 
 import { capitalize, createRadioListLayout } from "@/utils/helper";
@@ -9,7 +9,7 @@ export const button = defineType({
   name: "button",
   type: "object",
   title: "Button",
-  icon: Command,
+  icon: CommandIcon,
   fields: [
     defineField({
       name: "variant",

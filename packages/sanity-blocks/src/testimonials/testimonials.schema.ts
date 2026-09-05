@@ -1,15 +1,15 @@
+import { QuotesIcon } from "@phosphor-icons/react/dist/ssr/Quotes";
 import {
   definePortableTextField,
   imageWithAltField,
 } from "@workspace/sanity-blocks/internal/schema-fields";
-import { Quote } from "lucide-react";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 const testimonialItem = defineArrayMember({
   name: "testimonialItem",
   type: "object",
   title: "Testimonial",
-  icon: Quote,
+  icon: QuotesIcon,
   fields: [
     definePortableTextField(["block"], {
       name: "quote",
@@ -67,7 +67,7 @@ export const testimonialsSchema = defineType({
   title: "Testimonials",
   description:
     "A grid of customer quotes. Add each quote as an item below — visitors see them in the order you arrange here.",
-  icon: Quote,
+  icon: QuotesIcon,
   fields: [
     defineField({
       name: "eyebrow",

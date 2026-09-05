@@ -1,14 +1,16 @@
 "use client";
 
+import { MonitorIcon } from "@phosphor-icons/react/dist/ssr/Monitor";
+import { MoonIcon } from "@phosphor-icons/react/dist/ssr/Moon";
+import { SunIcon } from "@phosphor-icons/react/dist/ssr/Sun";
 import { cn } from "@workspace/tailwind-config/utils";
-import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useRef, useSyncExternalStore } from "react";
 
 const THEMES = [
-  { value: "light", label: "Light", Icon: Sun },
-  { value: "system", label: "System", Icon: Monitor },
-  { value: "dark", label: "Dark", Icon: Moon },
+  { value: "light", label: "Light", Icon: SunIcon },
+  { value: "system", label: "System", Icon: MonitorIcon },
+  { value: "dark", label: "Dark", Icon: MoonIcon },
 ] as const;
 
 // theme is client-only; render neutral until hydrated.

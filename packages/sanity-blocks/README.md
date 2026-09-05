@@ -47,7 +47,7 @@ import { pageBuilderToMarkdown } from "@workspace/sanity-blocks/internal/page-bu
 pnpm --filter @workspace/sanity-blocks test
 ```
 
-Vitest stubs `@workspace/env/client`, `lucide-react`, and `next/link`, so the
+Vitest stubs `@workspace/env/client` and `next/link`, so the
 suite runs without any environment variables.
 
 ## Adding a block
@@ -55,3 +55,5 @@ suite runs without any environment variables.
 Follow the checklist in [CLAUDE.md](../../CLAUDE.md#page-builder-pattern) — it
 covers all eight files that a new block touches, including the Markdown
 serializer, without which the block renders blank in `.md` output.
+
+CMS icons use Phosphor names (for example, `check` or `arrow-right`). The Studio picker and frontend share individually loaded icons. After upgrading Phosphor, run `pnpm --filter @workspace/sanity-blocks generate-icons`. The original Studio seed archive still contains legacy Lucide names; reselect those icons in Studio if you import it.

@@ -3,13 +3,14 @@ import {
   definePortableTextField,
   imageWithAltField,
 } from "@workspace/sanity-blocks/internal/schema-fields";
+import { createElement } from "react";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 const testimonialItem = defineArrayMember({
   name: "testimonialItem",
   type: "object",
   title: "Testimonial",
-  icon: QuotesIcon,
+  icon: () => createElement(QuotesIcon, { weight: "fill" }),
   fields: [
     definePortableTextField(["block"], {
       name: "quote",

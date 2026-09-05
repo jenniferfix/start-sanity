@@ -40,6 +40,7 @@ function TestimonialCard({
       <QuotesIcon
         aria-hidden="true"
         className="size-6 shrink-0 text-muted-foreground"
+        weight="fill"
       />
       <blockquote className="min-w-0">
         <RichText

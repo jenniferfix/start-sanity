@@ -504,7 +504,7 @@ export type FeatureCardsIcon = {
     _key: string;
   }>;
   cards?: Array<{
-    icon?: LucideIcon;
+    icon?: PhosphorIcon;
     title?: string;
     richText?: Array<{
       children?: Array<{
@@ -760,7 +760,7 @@ export type Navbar = {
     | {
         title?: string;
         links: Array<{
-          icon?: LucideIcon;
+          icon?: PhosphorIcon;
           name?: string;
           description?: string;
           url?: CustomUrl;
@@ -1020,7 +1020,7 @@ export type MuxVideo = {
   asset?: MuxVideoAssetReference;
 };
 
-export type LucideIcon = string;
+export type PhosphorIcon = string;
 
 export type AuthorReference = {
   _ref: string;
@@ -1482,7 +1482,7 @@ export type AllSanitySchemaTypes =
   | Page
   | MuxVideoAssetReference
   | MuxVideo
-  | LucideIcon
+  | PhosphorIcon
   | AuthorReference
   | Blog
   | SanityAssistInstructionTask
@@ -1698,7 +1698,7 @@ export type QueryHomePageDataResult = {
           _key: string;
         }> | null;
         cards: Array<{
-          icon?: LucideIcon;
+          icon?: PhosphorIcon;
           title?: string;
           richText: Array<{
             children?: Array<{
@@ -2447,7 +2447,7 @@ export type QuerySlugPageDataResult = {
           _key: string;
         }> | null;
         cards: Array<{
-          icon?: LucideIcon;
+          icon?: PhosphorIcon;
           title?: string;
           richText: Array<{
             children?: Array<{
@@ -3194,7 +3194,7 @@ export type QueryBlogIndexPageResult = {
           _key: string;
         }> | null;
         cards: Array<{
-          icon?: LucideIcon;
+          icon?: PhosphorIcon;
           title?: string;
           richText: Array<{
             children?: Array<{
@@ -4152,7 +4152,7 @@ export type QueryNavbarDataResult = {
         links: Array<{
           _key: string;
           name: string | null;
-          icon: LucideIcon | null;
+          icon: PhosphorIcon | null;
           description: string | null;
           openInNewTab: boolean | null;
           href: string | null;

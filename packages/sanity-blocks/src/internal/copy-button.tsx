@@ -1,7 +1,7 @@
 "use client";
 
+import { CheckIcon } from "@phosphor-icons/react/dist/ssr/Check";
 import { cn } from "@workspace/tailwind-config/utils";
-import { Check } from "lucide-react";
 
 import { CopyIcon } from "./icons";
 import {
@@ -30,7 +30,7 @@ export function CopyButton({ code }: Readonly<{ code: string }>) {
       type="button"
     >
       <span aria-hidden="true" className="grid size-4 place-items-center">
-        <Check
+        <CheckIcon
           className={cn(
             SWAP_LAYER,
             "size-4",

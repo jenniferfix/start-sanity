@@ -1,11 +1,11 @@
+import { TextAlignLeftIcon } from "@phosphor-icons/react/dist/ssr/TextAlignLeft";
 import { definePortableTextField } from "@workspace/sanity-blocks/internal/schema-fields";
-import { Text } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
 export const richTextBlockSchema = defineType({
   name: "richTextBlock",
   type: "object",
-  icon: Text,
+  icon: TextAlignLeftIcon,
   fields: [
     defineField({
       name: "eyebrow",

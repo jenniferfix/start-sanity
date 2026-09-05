@@ -1,9 +1,9 @@
+import { QuotesIcon } from "@phosphor-icons/react/dist/ssr/Quotes";
 import { BlockHeader } from "@workspace/sanity-blocks/internal/block-header";
 import type { RichTextValue } from "@workspace/sanity-blocks/internal/rich-text";
 import { RichText } from "@workspace/sanity-blocks/internal/rich-text";
 import type { SanityImageData } from "@workspace/sanity-blocks/internal/sanity-image";
 import { SanityImage } from "@workspace/sanity-blocks/internal/sanity-image";
-import { Quote } from "lucide-react";
 
 export interface TestimonialItem {
   _key?: string | null;
@@ -37,7 +37,7 @@ function TestimonialCard({
 
   return (
     <figure className="flex h-full min-w-0 flex-col gap-8 bg-background p-8 text-foreground">
-      <Quote
+      <QuotesIcon
         aria-hidden="true"
         className="size-6 shrink-0 text-muted-foreground"
       />

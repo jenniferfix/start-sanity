@@ -1,11 +1,12 @@
+import { ImageIcon } from "@phosphor-icons/react/dist/ssr/Image";
+import { ImagesIcon } from "@phosphor-icons/react/dist/ssr/Images";
 import { imageWithAltField } from "@workspace/sanity-blocks/internal/schema-fields";
-import { Image, Images } from "lucide-react";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 const showcaseItem = defineArrayMember({
   name: "showcaseItem",
   type: "object",
-  icon: Image,
+  icon: ImageIcon,
   fields: [
     defineField({
       name: "siteName",
@@ -70,7 +71,7 @@ export const showcaseGridSchema = defineType({
   title: "Showcase Grid",
   description:
     "A section that shows off real websites built with the template. Add the sites as items below — the one marked 'Featured' is shown in the large card at the top.",
-  icon: Images,
+  icon: ImagesIcon,
   fields: [
     defineField({
       name: "title",

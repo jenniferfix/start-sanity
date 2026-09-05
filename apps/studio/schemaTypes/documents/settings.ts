@@ -1,4 +1,4 @@
-import { Cog } from "lucide-react";
+import { GearIcon } from "@phosphor-icons/react/dist/csr/Gear";
 import { defineField, defineType } from "sanity";
 
 import { imageWithAltField } from "@/schemaTypes/common";
@@ -53,7 +53,7 @@ export const settings = defineType({
   type: "document",
   title: "Settings",
   description: "Global settings and configuration for your website",
-  icon: Cog,
+  icon: GearIcon,
   fields: [
     defineField({
       name: "label",
@@ -198,7 +198,7 @@ export const settings = defineType({
     },
     prepare: ({ title }) => ({
       title: title || "Untitled Settings",
-      media: Cog,
+      media: GearIcon,
     }),
   },
 });

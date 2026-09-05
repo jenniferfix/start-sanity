@@ -3494,7 +3494,7 @@
                   "type": "objectAttribute",
                   "value": {
                     "type": "inline",
-                    "name": "lucide-icon"
+                    "name": "phosphor-icon"
                   },
                   "optional": true
                 },
@@ -5329,7 +5329,7 @@
                             "type": "objectAttribute",
                             "value": {
                               "type": "inline",
-                              "name": "lucide-icon"
+                              "name": "phosphor-icon"
                             },
                             "optional": true
                           },
@@ -6962,7 +6962,7 @@
     }
   },
   {
-    "name": "lucide-icon",
+    "name": "phosphor-icon",
     "type": "type",
     "value": {
       "type": "string"

@@ -1,9 +1,9 @@
-import { lucideIconPreview } from "@workspace/sanity-blocks/internal/lucide-icon-preview";
+import { SquaresFourIcon } from "@phosphor-icons/react/dist/ssr/SquaresFour";
+import { phosphorIconPreview } from "@workspace/sanity-blocks/internal/phosphor-icon-preview";
 import {
   definePortableTextField,
   iconField,
 } from "@workspace/sanity-blocks/internal/schema-fields";
-import { LayoutGrid } from "lucide-react";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 const featureCardIconItem = defineArrayMember({
@@ -29,7 +29,7 @@ const featureCardIconItem = defineArrayMember({
     },
     prepare: ({ icon, title }) => ({
       title: title ?? "Untitled",
-      media: lucideIconPreview(icon),
+      media: phosphorIconPreview(icon),
     }),
   },
 });
@@ -39,7 +39,7 @@ export const featureCardsIconSchema = defineType({
   type: "object",
   description:
     "A grid of feature cards, each with an icon, title and description",
-  icon: LayoutGrid,
+  icon: SquaresFourIcon,
   fields: [
     defineField({
       name: "eyebrow",

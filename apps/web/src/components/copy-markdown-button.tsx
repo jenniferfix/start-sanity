@@ -1,5 +1,8 @@
 "use client";
 
+import { CheckIcon } from "@phosphor-icons/react/dist/ssr/Check";
+import { SpinnerGapIcon } from "@phosphor-icons/react/dist/ssr/SpinnerGap";
+import { XIcon } from "@phosphor-icons/react/dist/ssr/X";
 import { CopyIcon } from "@workspace/sanity-blocks/internal/icons";
 import {
   COPY_STATUS_CLASS,
@@ -12,7 +15,6 @@ import {
   useCopyToClipboard,
 } from "@workspace/sanity-blocks/internal/use-copy";
 import { cn } from "@workspace/tailwind-config/utils";
-import { Check, Loader2, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useCallback } from "react";
 
@@ -25,9 +27,9 @@ const LABELS: Record<CopyStatus, string> = {
 
 const STATUS_ICONS = {
   idle: CopyIcon,
-  loading: Loader2,
-  copied: Check,
-  error: X,
+  loading: SpinnerGapIcon,
+  copied: CheckIcon,
+  error: XIcon,
 } as const;
 
 const STATUSES = Object.keys(STATUS_ICONS) as CopyStatus[];

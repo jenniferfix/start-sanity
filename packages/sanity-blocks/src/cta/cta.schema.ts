@@ -1,9 +1,9 @@
+import { PhoneIcon } from "@phosphor-icons/react/dist/ssr/Phone";
 import {
   buttonsField,
   definePortableTextField,
   logoLinkItem,
 } from "@workspace/sanity-blocks/internal/schema-fields";
-import { Phone } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
 const usedByTeamsLogo = logoLinkItem("usedByTeamsLogo");
@@ -11,7 +11,7 @@ const usedByTeamsLogo = logoLinkItem("usedByTeamsLogo");
 export const ctaSchema = defineType({
   name: "cta",
   type: "object",
-  icon: Phone,
+  icon: PhoneIcon,
   fields: [
     defineField({
       name: "eyebrow",

@@ -1,4 +1,4 @@
-import { File } from "lucide-react";
+import { FileIcon } from "@phosphor-icons/react/dist/csr/File";
 import { defineField, defineType } from "sanity";
 
 import {
@@ -16,7 +16,7 @@ export const page = defineType({
   title: "Page",
   description:
     "Create a new page for your website, like an 'About Us' or 'Contact' page. Each page has its own web address and content that you can customize.",
-  icon: File,
+  icon: FileIcon,
   groups: GROUPS,
   fields: [
     defineField({

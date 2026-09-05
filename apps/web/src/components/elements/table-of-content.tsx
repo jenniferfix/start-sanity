@@ -1,5 +1,7 @@
 "use client";
 
+import { CaretDownIcon } from "@phosphor-icons/react/dist/ssr/CaretDown";
+import { CheckIcon } from "@phosphor-icons/react/dist/ssr/Check";
 import {
   headingChildrenToSlug,
   headingTextToSlug,
@@ -25,7 +27,6 @@ import {
   useDisclosureAnimation,
 } from "@workspace/sanity-blocks/internal/use-disclosure-animation";
 import { cn } from "@workspace/tailwind-config/utils";
-import { Check, ChevronDown } from "lucide-react";
 import {
   type FC,
   type MouseEvent,
@@ -651,7 +652,7 @@ function ShareOptions({
         type="button"
       >
         <span aria-hidden="true" className="grid size-4.5 place-items-center">
-          <Check
+          <CheckIcon
             className={cn(
               SWAP_LAYER,
               "size-4.5",
@@ -791,7 +792,7 @@ export const MobileTableOfContent: FC<TableOfContentProps> = ({
         onClick={handleSummaryClick}
       >
         On this page
-        <ChevronDown
+        <CaretDownIcon
           aria-hidden="true"
           className={cn(
             "size-5 shrink-0 text-muted-foreground transition-transform",

@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { ChatCircleIcon } from "@phosphor-icons/react/dist/csr/ChatCircle";
 import { defineField, defineType } from "sanity";
 
 import { customRichText } from "@/schemaTypes/definitions/rich-text";
@@ -10,7 +10,7 @@ export const faq = defineType({
   title: "Frequently Asked Question",
   description:
     "A simple question and answer pair that helps visitors find information quickly. Think of it like writing down the questions customers often ask, along with clear answers.",
-  icon: MessageCircle,
+  icon: ChatCircleIcon,
   fields: [
     defineField({
       name: "title",

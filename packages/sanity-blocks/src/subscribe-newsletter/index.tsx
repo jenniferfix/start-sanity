@@ -1,5 +1,6 @@
 "use client";
 
+import { SpinnerGapIcon } from "@phosphor-icons/react/dist/ssr/SpinnerGap";
 import { BlockEyebrow } from "@workspace/sanity-blocks/internal/block-eyebrow";
 import type { RichTextValue } from "@workspace/sanity-blocks/internal/rich-text";
 import { RichText } from "@workspace/sanity-blocks/internal/rich-text";
@@ -7,7 +8,6 @@ import type { SanityImageData } from "@workspace/sanity-blocks/internal/sanity-i
 import { SanityImage } from "@workspace/sanity-blocks/internal/sanity-image";
 import { cn } from "@workspace/tailwind-config/utils";
 import { Button } from "@workspace/ui/components/button";
-import { LoaderCircle } from "lucide-react";
 import type { ComponentProps } from "react";
 import { useFormStatus } from "react-dom";
 
@@ -41,11 +41,11 @@ function SubscribeNewsletterButton() {
       variant="secondary"
     >
       {pending ? (
-        <LoaderCircle
+        <SpinnerGapIcon
           aria-hidden="true"
           className="animate-spin"
           size={16}
-          strokeWidth={2}
+          weight="regular"
         />
       ) : (
         "Subscribe"

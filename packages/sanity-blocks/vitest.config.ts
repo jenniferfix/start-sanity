@@ -30,20 +30,6 @@ export default defineConfig({
         replacement: path.resolve(__dirname, "../logger/src/index.ts"),
       },
       {
-        find: "lucide-react/dynamic",
-        replacement: path.resolve(
-          __dirname,
-          "src/internal/testing/lucide-react-dynamic.mock.tsx"
-        ),
-      },
-      {
-        find: "lucide-react",
-        replacement: path.resolve(
-          __dirname,
-          "src/internal/testing/lucide-react.mock.tsx"
-        ),
-      },
-      {
         find: "next/link",
         replacement: path.resolve(
           __dirname,

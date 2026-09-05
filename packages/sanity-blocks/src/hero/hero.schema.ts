@@ -1,9 +1,9 @@
+import { StarIcon } from "@phosphor-icons/react/dist/ssr/Star";
 import {
   buttonsField,
   definePortableTextField,
   muxVideoField,
 } from "@workspace/sanity-blocks/internal/schema-fields";
-import { Star } from "lucide-react";
 import { defineField, defineType } from "sanity";
 
 /** The three delivery paths a hero background can take. */
@@ -168,7 +168,7 @@ export const heroSchema = defineType({
   name: "hero",
   type: "object",
   title: "Hero",
-  icon: Star,
+  icon: StarIcon,
   fields: [
     defineField({
       name: "badge",

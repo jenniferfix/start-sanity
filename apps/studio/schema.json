@@ -2579,6 +2579,52 @@
                       },
                       "optional": true
                     },
+                    "layout": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "union",
+                        "of": [
+                          {
+                            "type": "string",
+                            "value": "full"
+                          },
+                          {
+                            "type": "string",
+                            "value": "center"
+                          },
+                          {
+                            "type": "string",
+                            "value": "left"
+                          },
+                          {
+                            "type": "string",
+                            "value": "right"
+                          }
+                        ]
+                      },
+                      "optional": true
+                    },
+                    "size": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "union",
+                        "of": [
+                          {
+                            "type": "string",
+                            "value": "small"
+                          },
+                          {
+                            "type": "string",
+                            "value": "medium"
+                          },
+                          {
+                            "type": "string",
+                            "value": "large"
+                          }
+                        ]
+                      },
+                      "optional": true
+                    },
                     "_type": {
                       "type": "objectAttribute",
                       "value": {
@@ -4797,6 +4843,52 @@
                 "type": "objectAttribute",
                 "value": {
                   "type": "string"
+                },
+                "optional": true
+              },
+              "layout": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": [
+                    {
+                      "type": "string",
+                      "value": "full"
+                    },
+                    {
+                      "type": "string",
+                      "value": "center"
+                    },
+                    {
+                      "type": "string",
+                      "value": "left"
+                    },
+                    {
+                      "type": "string",
+                      "value": "right"
+                    }
+                  ]
+                },
+                "optional": true
+              },
+              "size": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": [
+                    {
+                      "type": "string",
+                      "value": "small"
+                    },
+                    {
+                      "type": "string",
+                      "value": "medium"
+                    },
+                    {
+                      "type": "string",
+                      "value": "large"
+                    }
+                  ]
                 },
                 "optional": true
               },

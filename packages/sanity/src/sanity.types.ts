@@ -370,6 +370,8 @@ export type RichTextBlock = {
         crop?: SanityImageCrop;
         alt?: string;
         caption?: string;
+        layout?: "full" | "center" | "left" | "right";
+        size?: "small" | "medium" | "large";
         _type: "image";
         _key: string;
       }
@@ -685,6 +687,8 @@ export type RichText = Array<
       crop?: SanityImageCrop;
       alt?: string;
       caption?: string;
+      layout?: "full" | "center" | "left" | "right";
+      size?: "small" | "medium" | "large";
       _type: "image";
       _key: string;
     }
@@ -1961,6 +1965,8 @@ export type QueryHomePageDataResult = {
               } | null;
               alt: string | "untitled";
               caption: string | null;
+              layout?: "center" | "full" | "left" | "right";
+              size?: "large" | "medium" | "small";
               _type: "image";
               _key: string;
               id: string | null;
@@ -2737,6 +2743,8 @@ export type QuerySlugPageDataResult = {
               } | null;
               alt: string | "untitled";
               caption: string | null;
+              layout?: "center" | "full" | "left" | "right";
+              size?: "large" | "medium" | "small";
               _type: "image";
               _key: string;
               id: string | null;
@@ -3511,6 +3519,8 @@ export type QueryBlogIndexPageResult = {
               } | null;
               alt: string | "untitled";
               caption: string | null;
+              layout?: "center" | "full" | "left" | "right";
+              size?: "large" | "medium" | "small";
               _type: "image";
               _key: string;
               id: string | null;
@@ -4139,6 +4149,8 @@ export type QueryBlogSlugPageDataResult = {
         } | null;
         alt: string | "untitled";
         caption: string | null;
+        layout?: "center" | "full" | "left" | "right";
+        size?: "large" | "medium" | "small";
         _type: "image";
         _key: string;
         id: string | null;

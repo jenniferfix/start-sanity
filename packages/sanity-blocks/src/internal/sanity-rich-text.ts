@@ -96,6 +96,40 @@ const richTextMembers = [
         title: "Caption Text",
         description: "Optional caption shown beneath the image.",
       }),
+      defineField({
+        name: "layout",
+        type: "string",
+        title: "Image Layout",
+        description:
+          "Float left or right to wrap following text beside the image. Centered images do not wrap text. Images use the full width on small screens.",
+        initialValue: "full",
+        options: {
+          list: [
+            { title: "Full width (no wrapping)", value: "full" },
+            { title: "Centered (no wrapping)", value: "center" },
+            { title: "Float left (text wraps on the right)", value: "left" },
+            { title: "Float right (text wraps on the left)", value: "right" },
+          ],
+          layout: "radio",
+        },
+      }),
+      defineField({
+        name: "size",
+        type: "string",
+        title: "Image Size",
+        description:
+          "Width relative to the text area on larger screens. Smaller images leave more room for wrapping text.",
+        initialValue: "medium",
+        hidden: ({ parent }) => !parent?.layout || parent.layout === "full",
+        options: {
+          list: [
+            { title: "Small (one-third width)", value: "small" },
+            { title: "Medium (half width)", value: "medium" },
+            { title: "Large (two-thirds width)", value: "large" },
+          ],
+          layout: "radio",
+        },
+      }),
     ],
   }),
   defineArrayMember({

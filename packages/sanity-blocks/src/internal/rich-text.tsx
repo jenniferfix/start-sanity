@@ -5,6 +5,7 @@ import {
   PortableText,
   type PortableTextBlock,
   type PortableTextReactComponents,
+  stegaClean,
 } from "next-sanity";
 
 import { CodeBlock } from "./code-block";
@@ -14,6 +15,24 @@ import { SanityImage } from "./sanity-image";
 import { TableBlock } from "./table-block";
 
 const logger = new Logger("RichText");
+
+const imageSizes = {
+  small: {
+    className: "sm:w-1/3",
+    sizes:
+      "(min-width: 1024px) 300px, (min-width: 640px) calc((100vw - 40px) / 3), calc(100vw - 40px)",
+  },
+  medium: {
+    className: "sm:w-1/2",
+    sizes:
+      "(min-width: 1024px) 450px, (min-width: 640px) calc((100vw - 40px) / 2), calc(100vw - 40px)",
+  },
+  large: {
+    className: "sm:w-2/3",
+    sizes:
+      "(min-width: 1024px) 600px, (min-width: 640px) calc((100vw - 40px) * 2 / 3), calc(100vw - 40px)",
+  },
+};
 
 const components: Partial<PortableTextReactComponents> = {
   block: {
@@ -135,13 +154,33 @@ const components: Partial<PortableTextReactComponents> = {
       if (!value?.id) {
         return null;
       }
+      const layout = stegaClean(value.layout);
+      const isFloat = layout === "left" || layout === "right";
+      const isSized = isFloat || layout === "center";
+      const size: unknown = stegaClean(value.size);
+      const imageSize =
+        imageSizes[size === "small" || size === "large" ? size : "medium"];
       return (
-        <figure className="my-4">
+        <figure
+          className={cn(
+            "my-4 w-full",
+            isSized && imageSize.className,
+            layout === "left" && "sm:float-left sm:clear-left sm:mt-0 sm:mr-6",
+            layout === "right" &&
+              "sm:float-right sm:clear-right sm:mt-0 sm:ml-6",
+            !isFloat && "clear-both",
+            layout === "center" && "mx-auto"
+          )}
+        >
           <SanityImage
-            className="h-auto w-full"
+            className="my-0 h-auto w-full"
             height={900}
             image={value}
-            sizes="(min-width: 1024px) 900px, calc(100vw - 40px)"
+            sizes={
+              isSized
+                ? imageSize.sizes
+                : "(min-width: 1024px) 900px, calc(100vw - 40px)"
+            }
             width={1600}
           />
           {value?.caption && (
@@ -189,7 +228,7 @@ export function RichText<T extends RichTextValue>({
       className={cn(
         // `strong` is the design's highlight treatment: foreground ink at
         // normal weight, not bold.
-        "prose prose-zinc dark:prose-invert max-w-none prose-headings:scroll-m-24 prose-a:decoration-dotted prose-strong:font-normal prose-strong:text-foreground prose-h2:first:mt-0 dark:prose-headings:text-zinc-100",
+        "prose prose-zinc dark:prose-invert flow-root max-w-none prose-headings:scroll-m-24 prose-a:decoration-dotted prose-strong:font-normal prose-strong:text-foreground prose-h2:first:mt-0 dark:prose-headings:text-zinc-100",
         className
       )}
     >

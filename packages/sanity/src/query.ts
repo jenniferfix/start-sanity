@@ -1,3 +1,4 @@
+import { imageTextGroqProjection } from "@workspace/sanity-blocks/image-text/image-text.groq";
 import { ctaGroqProjection } from "@workspace/sanity-blocks/cta/cta.groq";
 import { faqAccordionGroqProjection } from "@workspace/sanity-blocks/faq-accordion/faq-accordion.groq";
 import { featureCardsIconGroqProjection } from "@workspace/sanity-blocks/feature-cards-icon/feature-cards-icon.groq";
@@ -133,6 +134,7 @@ const pageBuilderFragment = /* groq */ `
     _type,
     ${ctaGroqProjection},
     ${heroGroqProjection},
+    ${imageTextGroqProjection},
     ${faqAccordionGroqProjection},
     ${featureCardsIconGroqProjection},
     ${subscribeNewsletterGroqProjection},

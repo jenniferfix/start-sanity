@@ -1,3 +1,4 @@
+import { imageTextSchema } from "./image-text/image-text.schema";
 import { ctaSchema } from "./cta/cta.schema";
 import { faqAccordionSchema } from "./faq-accordion/faq-accordion.schema";
 import { featureCardsIconSchema } from "./feature-cards-icon/feature-cards-icon.schema";
@@ -24,8 +25,11 @@ export { subscribeNewsletterSchema } from "./subscribe-newsletter/subscribe-news
 export { testimonialsSchema } from "./testimonials/testimonials.schema";
 export { videoFeatureSchema } from "./video-feature/video-feature.schema";
 
+export { imageTextSchema } from "./image-text/image-text.schema";
+
 export const blockSchemas = [
   heroSchema,
+  imageTextSchema,
   pricingSchema,
   ctaSchema,
   featureCardsIconSchema,

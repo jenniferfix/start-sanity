@@ -1,3 +1,4 @@
+import { imageTextToMarkdown } from "../image-text/markdown";
 import { pricingToMarkdown } from "../pricing/markdown";
 /** Thin dispatcher: each block's Markdown serializer is co-located in its block
  * directory (add a `case` + `markdown.ts` for new blocks). Unknown types return "". */
@@ -23,6 +24,8 @@ function blockToMarkdown(
   options: MarkdownOptions
 ): string {
   switch (block?._type) {
+    case "imageText":
+      return imageTextToMarkdown(block, options);
     case "pricing":
       return pricingToMarkdown(block, options);
     case "hero":

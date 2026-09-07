@@ -6,6 +6,7 @@ import { CTABlock } from "@workspace/sanity-blocks/cta/index";
 import { FaqAccordion } from "@workspace/sanity-blocks/faq-accordion/index";
 import { FeatureCardsWithIcon } from "@workspace/sanity-blocks/feature-cards-icon/index";
 import { HeroBlock } from "@workspace/sanity-blocks/hero/index";
+import { ImageText } from "@workspace/sanity-blocks/image-text/index";
 import { LogoCloud } from "@workspace/sanity-blocks/logo-cloud/index";
 import { Pricing } from "@workspace/sanity-blocks/pricing/index";
 import { RichTextBlock } from "@workspace/sanity-blocks/rich-text-block/index";
@@ -42,6 +43,8 @@ function renderBlockComponent(
   dataSanity?: string
 ) {
   switch (block?._type) {
+    case "imageText":
+      return <ImageText {...(block as PagebuilderType<"imageText">)} />;
     case "pricing":
       return <Pricing {...(block as PagebuilderType<"pricing">)} />;
     case "cta":

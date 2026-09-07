@@ -40,6 +40,9 @@ const heroVideoFragment = /* groq */ `
 export const heroGroqProjection = /* groq */ `
   _type == "hero" => {
     ...,
+    secondaryImage {
+      ${imageFields}
+    },
     ${heroVideoFragment},
     ${buttonsFragment},
     ${richTextFragment}

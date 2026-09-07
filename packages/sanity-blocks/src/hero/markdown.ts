@@ -30,6 +30,7 @@ export function heroToMarkdown(
   };
 
   return joinSections([
+    imageToMarkdown(block.secondaryImage, options),
     eyebrowToMarkdown(block.badge),
     headingToMarkdown(block.title, 2),
     portableTextToMarkdown(block.richText, options),

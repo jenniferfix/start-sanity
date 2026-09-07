@@ -8,6 +8,8 @@ import {
   defineField,
 } from "sanity";
 
+import { RichTextImagePreview } from "./rich-text-image-preview";
+
 // Single source of truth for portable text member names
 const PORTABLE_TEXT_MEMBER_NAMES = {
   block: "block",
@@ -80,6 +82,30 @@ const richTextMembers = [
     type: "image",
     title: "Image",
     icon: ImageIcon,
+    components: {
+      preview: RichTextImagePreview,
+    },
+    preview: {
+      select: {
+        alt: "alt",
+        caption: "caption",
+        asset: "asset",
+        crop: "crop",
+        hotspot: "hotspot",
+        imageLayout: "layout",
+        imageSize: "size",
+      },
+      prepare({ alt, caption, asset, crop, hotspot, imageLayout, imageSize }) {
+        return {
+          title: caption || alt || "Image",
+          imageSource: asset
+            ? { _type: "image", asset, crop, hotspot }
+            : ImageIcon,
+          imageLayout,
+          imageSize,
+        };
+      },
+    },
     options: {
       hotspot: true,
     },

@@ -6,6 +6,7 @@ import { SanityButtons } from "@workspace/sanity-blocks/internal/sanity-buttons"
 import type { SanityImageData } from "@workspace/sanity-blocks/internal/sanity-image";
 import {
   getImageDimensions,
+  resolveAssetId,
   SanityImage,
 } from "@workspace/sanity-blocks/internal/sanity-image";
 import { cn } from "@workspace/tailwind-config/utils";
@@ -23,6 +24,7 @@ export interface HeroBlockProps {
   dataSanity?: string;
   isFirst?: boolean;
   richText?: RichTextValue;
+  secondaryImage?: SanityImageData | null;
   title?: string | null;
   video?: HeroVideoData | null;
 }
@@ -141,6 +143,7 @@ export function HeroBlock({
   badge,
   dataSanity,
   richText,
+  secondaryImage,
   isFirst,
   video,
 }: Readonly<HeroBlockProps>) {
@@ -153,15 +156,32 @@ export function HeroBlock({
 
   const copy = (
     <div className="container grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-12">
-      <div className="grid gap-5">
-        <BlockEyebrow eyebrow={badge} />
-        <h1 className="hero-enter max-w-[827px] text-pretty break-words font-normal text-4xl text-foreground leading-[1.1] tracking-[-0.24px] sm:text-5xl lg:text-[64px]">
-          {title}
-        </h1>
-        <RichText
-          className="body-text hero-enter max-w-[633px] text-muted-foreground [animation-delay:80ms]"
-          richText={richText}
-        />
+      <div
+        className={cn(
+          "grid gap-8",
+          resolveAssetId(secondaryImage) &&
+            "md:grid-cols-[minmax(0,240px)_minmax(0,1fr)] md:items-center"
+        )}
+      >
+        {secondaryImage && resolveAssetId(secondaryImage) ? (
+          <SanityImage
+            className="h-auto w-full max-w-60"
+            image={secondaryImage}
+            loading={isFirst ? "eager" : "lazy"}
+            sizes="(min-width: 288px) 240px, 100vw"
+            width={480}
+          />
+        ) : null}
+        <div className="grid gap-5">
+          <BlockEyebrow eyebrow={badge} />
+          <h1 className="hero-enter max-w-[827px] text-pretty break-words font-normal text-4xl text-foreground leading-[1.1] tracking-[-0.24px] sm:text-5xl lg:text-[64px]">
+            {title}
+          </h1>
+          <RichText
+            className="body-text hero-enter max-w-[633px] text-muted-foreground [animation-delay:80ms]"
+            richText={richText}
+          />
+        </div>
       </div>
       <SanityButtons
         buttonClassName="h-auto w-full px-5 py-2 text-xl leading-8 sm:w-auto"

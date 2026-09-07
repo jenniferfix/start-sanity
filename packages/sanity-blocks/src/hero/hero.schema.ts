@@ -2,6 +2,7 @@ import { StarIcon } from "@phosphor-icons/react/dist/ssr/Star";
 import {
   buttonsField,
   definePortableTextField,
+  imageWithAltField,
   muxVideoField,
 } from "@workspace/sanity-blocks/internal/schema-fields";
 import { defineField, defineType } from "sanity";
@@ -188,6 +189,12 @@ export const heroSchema = defineType({
       name: "richText",
       description:
         "The supporting paragraph shown beneath the title, introducing the page in a sentence or two",
+    }),
+    imageWithAltField({
+      name: "secondaryImage",
+      title: "Secondary Image",
+      description:
+        "Optional image displayed to the left of the text, or above it on small screens.",
     }),
     heroVideoField,
     buttonsField,

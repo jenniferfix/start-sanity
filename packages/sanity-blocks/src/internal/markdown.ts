@@ -110,6 +110,7 @@ export interface MarkdownPricingPlan {
 }
 
 export interface MarkdownBlock {
+  secondaryImage?: MarkdownImage | null;
   plans?: MarkdownPricingPlan[] | null;
   footnote?: string | null;
   _type?: string;

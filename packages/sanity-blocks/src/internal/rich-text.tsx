@@ -163,9 +163,10 @@ const components: Partial<PortableTextReactComponents> = {
       return (
         <figure
           className={cn(
-            "my-4 w-full",
+            "my-4 mx-auto min-w-0 max-w-[60dvw] sm:mx-0",
             isSized && imageSize.className,
-            layout === "left" && "sm:float-left sm:clear-left sm:mt-0 sm:mr-6",
+            layout === "left" &&
+              "sm:float-left sm:clear-left sm:mt-0 sm:mr-6 sm:mb-0",
             layout === "right" &&
               "sm:float-right sm:clear-right sm:mt-0 sm:ml-6",
             !isFloat && "clear-both",

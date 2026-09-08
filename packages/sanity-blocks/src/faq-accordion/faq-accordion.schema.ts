@@ -98,9 +98,7 @@ export const faqAccordionSchema = defineType({
             },
             prepare: ({ title, faqs }) => ({
               title: title ?? "Untitled category",
-              subtitle: `${faqs?.length ?? 0} FAQ${
-                faqs?.length === 1 ? "" : "s"
-              }`,
+              subtitle: `${faqs?.length ?? 0} FAQ${faqs?.length === 1 ? "" : "s"}`,
             }),
           },
         }),

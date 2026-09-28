@@ -23,7 +23,7 @@
     "sanity"
   ],
   "dependencies": {
-    "@phosphor-icons/react": "^2.1.10",
+    "@phosphor-icons/react": "catalog:",
     "@sanity/assist": "^6.2.1",
     "@sanity/client": "catalog:",
     "@sanity/functions": "^1.8.0",

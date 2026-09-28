@@ -3,8 +3,9 @@ packages:
   - packages/*
 
 catalog:
+  "@phosphor-icons/react": ^2.1.10
   # Held at 7: next-sanity 13 imports `unstable__adapter`, which @sanity/client 8 removed.
-  "@sanity/client": ^8.7.0
+  "@sanity/client": ^7.26.2
   "@tailwindcss/postcss": ^4.3.3
   "@types/node": ^26.6.3
   "@types/react": ^19.3.0

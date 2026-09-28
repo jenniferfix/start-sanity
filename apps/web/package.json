@@ -15,7 +15,7 @@
     "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
-    "@phosphor-icons/react": "^2.1.10",
+    "@phosphor-icons/react": "catalog:",
     "@sanity/client": "catalog:",
     "@sanity/visual-editing": "^6.1.2",
     "@tanstack/react-query": "^5.104.0",

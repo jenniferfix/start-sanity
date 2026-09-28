@@ -12,7 +12,6 @@
   "dependencies": {
     "@base-ui/react": "catalog:",
     "@phosphor-icons/react": "catalog:",
-    "@radix-ui/react-slot": "catalog:",
     "@tailwindcss/typography": "catalog:",
     "@workspace/tailwind-config": "workspace:*",
     "class-variance-authority": "catalog:",

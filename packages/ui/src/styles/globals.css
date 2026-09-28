@@ -56,6 +56,10 @@
   /* Overscroll gutter surface, shown on the top rubber-band by the navbar. */
   --overscroll-top: var(--background);
 
+  /* The hover wash: a tint of the ink rather than a solid grey, so it shows on
+     any surface — page, card or popover. Over white it lands on zinc-100. */
+  --wash: color-mix(in oklab, var(--foreground) 5%, transparent);
+
   /* Damped spring sampled to a `linear()` curve — ~1% overshoot, so it settles
      rather than bounces. A cubic-bezier can't overshoot at all. */
   --ease-spring: linear(
@@ -152,6 +156,9 @@
     var(--background) 90%,
     var(--foreground) 10%
   );
+
+  /* A dark ground takes twice the ink; over black this lands on zinc-900. */
+  --wash: color-mix(in oklab, var(--foreground) 10%, transparent);
 }
 
 @theme inline {
@@ -183,6 +190,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-wash: var(--wash);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -213,11 +221,11 @@
   margin-inline: calc(var(--container-px, 0.5rem) * -1);
 }
 
-/* The one hover wash, shared by nav, the FAQ accordion and blog cards. Any
- * surface using it must rest on `--background` (white/black), or the wash and
- * the rest state collapse into each other. */
+/* The one hover wash, shared by nav, the FAQ accordion and blog cards. It is
+ * `--wash`, a tint rather than a solid grey, so it reads on any surface. Focus
+ * and open states that mirror it use `bg-wash` directly. */
 @utility hover-surface {
-  @apply hover:bg-zinc-100 dark:hover:bg-zinc-900;
+  @apply hover:bg-wash;
 }
 
 @utility body-text {

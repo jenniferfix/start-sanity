@@ -1,5 +1,5 @@
 import { cn } from "@workspace/tailwind-config/utils";
-import { Button } from "@workspace/ui/components/button";
+import { Button, buttonVariants } from "@workspace/ui/components/button";
 import Link from "next/link";
 import type { ComponentProps } from "react";
 
@@ -60,23 +60,23 @@ function SanityButton({
   }
 
   return (
-    <Button
-      asChild
-      className={cn("rounded-full", className)}
-      size={size ?? "default"}
-      variant={variant ?? "default"}
+    <Link
+      className={buttonVariants({
+        size: size ?? "default",
+        variant,
+        className: cn("rounded-full", className),
+      })}
+      data-slot="button"
+      data-variant={variant}
+      href={safeHref}
+      rel={openInNewTab ? "noopener noreferrer" : undefined}
+      target={openInNewTab ? "_blank" : "_self"}
     >
-      <Link
-        href={safeHref}
-        rel={openInNewTab ? "noopener noreferrer" : undefined}
-        target={openInNewTab ? "_blank" : "_self"}
-      >
-        {text}
-        {openInNewTab ? (
-          <span className="sr-only"> (opens in a new tab)</span>
-        ) : null}
-      </Link>
-    </Button>
+      {text}
+      {openInNewTab ? (
+        <span className="sr-only"> (opens in a new tab)</span>
+      ) : null}
+    </Link>
   );
 }
 

@@ -198,7 +198,7 @@ directly from `@workspace/sanity-blocks/<kebab>/index` — not through
 
 <HARD-GATE>
 Mark it `"use client"`. Several blocks pass function props to client libraries
-(`DynamicIcon` fallbacks, Radix primitives, `useFormStatus`) which cannot cross
+(`DynamicIcon` fallbacks, Base UI primitives, `useFormStatus`) which cannot cross
 the RSC boundary — a server component throws "Functions cannot be passed
 directly to Client Components".
 </HARD-GATE>

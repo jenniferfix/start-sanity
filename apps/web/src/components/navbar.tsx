@@ -23,11 +23,11 @@ import type { ColumnLink, NavigationData } from "@/types";
 // on the same colour. The `data-nav-on` overrides win over both, keeping the
 // translucent treatment where the bar sits on a fixed-ground section.
 const NAV_LINK_CLASS =
-  "hover-surface h-auto rounded-full bg-transparent px-3 py-2 font-light font-mono text-foreground text-sm uppercase tracking-normal outline-none focus-visible:bg-zinc-100 focus-visible:[outline:2px_dotted_currentColor]! focus-visible:outline-offset-2! dark:focus-visible:bg-zinc-900 data-[nav-on=dark]:text-white data-[nav-on=dark]:hover:bg-white/15 data-[nav-on=dark]:focus-visible:bg-white/15 data-[nav-on=light]:text-zinc-900 data-[nav-on=light]:hover:bg-zinc-900/10 data-[nav-on=light]:focus-visible:bg-zinc-900/10";
+  "hover-surface h-auto rounded-full bg-transparent px-3 py-2 font-light font-mono text-foreground text-sm uppercase tracking-normal outline-none focus-visible:bg-wash focus-visible:[outline:2px_dotted_currentColor]! focus-visible:outline-offset-2! data-[nav-on=dark]:text-white data-[nav-on=dark]:hover:bg-white/15 data-[nav-on=dark]:focus-visible:bg-white/15 data-[nav-on=light]:text-zinc-900 data-[nav-on=light]:hover:bg-zinc-900/10 data-[nav-on=light]:focus-visible:bg-zinc-900/10";
 
 const TRIGGER_CLASS = cn(
   NAV_LINK_CLASS,
-  "data-popup-open:bg-zinc-100 dark:data-popup-open:bg-zinc-900 data-[nav-on=dark]:data-popup-open:bg-white/15 data-[nav-on=light]:data-popup-open:bg-zinc-900/10"
+  "data-popup-open:bg-wash data-[nav-on=dark]:data-popup-open:bg-white/15 data-[nav-on=light]:data-popup-open:bg-zinc-900/10"
 );
 
 // The outline pill draws itself in theme ink, which lands white-on-bright over
@@ -234,7 +234,6 @@ export function Navbar({
             aria-label="Main"
             className="hidden lg:flex"
             closeDelay={150}
-            viewport
           >
             <NavigationMenuList className="gap-8">
               {columns?.map((column) => {

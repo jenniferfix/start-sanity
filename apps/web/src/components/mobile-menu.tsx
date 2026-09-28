@@ -3,25 +3,20 @@
 import { ListIcon } from "@phosphor-icons/react/dist/ssr/List";
 import { XIcon } from "@phosphor-icons/react/dist/ssr/X";
 import { SanityButtons } from "@workspace/sanity-blocks/internal/sanity-buttons";
-import { cn } from "@workspace/tailwind-config/utils";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@workspace/ui/components/accordion";
+import { Button } from "@workspace/ui/components/button";
 import {
   Drawer,
-  DrawerBackdrop,
   DrawerClose,
   DrawerContent,
-  DrawerPopup,
-  DrawerPortal,
   DrawerTitle,
   DrawerTrigger,
-  DrawerViewport,
-} from "@workspace/ui/components/base-drawer";
-import { Button } from "@workspace/ui/components/button";
+} from "@workspace/ui/components/drawer";
 import { useMediaQuery } from "@workspace/ui/hooks/use-media-query";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -34,17 +29,12 @@ import type { ColumnLink, NavigationData } from "@/types";
 const TABLET_QUERY = "(min-width: 768px) and (max-width: 1023.98px)";
 const DESKTOP_QUERY = "(min-width: 1024px)";
 
-const VIEWPORT_ANCHOR = {
-  bottom: "items-end justify-center",
-  right: "items-stretch justify-end",
-} as const;
-
-const POPUP_SLIDE = {
-  bottom:
-    "h-dvh origin-bottom [transform:translateY(var(--drawer-swipe-movement-y,0px))] data-starting-style:[transform:translateY(100%)] data-ending-style:[transform:translateY(100%)]",
-  right:
-    "h-dvh max-w-md border-s origin-right [transform:translateX(var(--drawer-swipe-movement-x,0px))] data-starting-style:[transform:translateX(100%)] data-ending-style:[transform:translateX(100%)]",
-} as const;
+// The default drawer is a rounded, content-height sheet on `--popover` with
+// `text-sm`; the menu keeps its full-height square panel (28rem from the right)
+// on the page background, at body size. The corners need `!` because the
+// default scopes its radius to `data-swipe-direction`.
+const SHEET_CLASS =
+  "h-dvh max-h-none rounded-none! bg-background pb-[env(safe-area-inset-bottom)] text-base data-[swipe-direction=right]:w-md";
 
 export function MobileMenu({
   navbarData,
@@ -108,115 +98,100 @@ export function MobileMenu({
         }
       />
 
-      <DrawerPortal>
-        <DrawerBackdrop />
-        <DrawerViewport className={VIEWPORT_ANCHOR[side]}>
-          <DrawerPopup
-            className={cn(
-              "w-full pb-[env(safe-area-inset-bottom)]",
-              POPUP_SLIDE[side]
-            )}
-            finalFocus={finalFocus}
-          >
-            <DrawerContent>
-              <div className="flex flex-row items-center justify-between border-b px-6 py-2.5">
-                <DrawerTitle className="sr-only">
-                  {siteTitle || "Menu"}
-                </DrawerTitle>
-                <div className="flex items-center [&_img]:h-5 [&_img]:w-auto [&_img]:rounded-none">
-                  <Logo
-                    alt={siteTitle ?? "Turbo Start Sanity"}
-                    image={logos?.logo}
-                    imageDark={logos?.logoDark}
-                  />
-                </div>
-                <DrawerClose
-                  render={
-                    <Button
-                      className="-mr-3 rounded-none focus-visible:outline-offset-0!"
-                      size="icon"
-                      variant="ghost"
-                    >
-                      <XIcon className="size-4" />
-                      <span className="sr-only">Close</span>
-                    </Button>
-                  }
-                />
-              </div>
-
-              <nav
-                aria-label="Main"
-                className="grid flex-1 content-start gap-1 overflow-y-auto px-6 pt-4"
+      <DrawerContent
+        className={SHEET_CLASS}
+        finalFocus={finalFocus}
+        overlayClassName="bg-background/95 supports-backdrop-filter:backdrop-blur-none"
+      >
+        <div className="flex flex-row items-center justify-between border-b px-6 py-2.5">
+          <DrawerTitle className="sr-only">{siteTitle || "Menu"}</DrawerTitle>
+          <div className="flex items-center [&_img]:h-5 [&_img]:w-auto [&_img]:rounded-none">
+            <Logo
+              alt={siteTitle ?? "Turbo Start Sanity"}
+              image={logos?.logo}
+              imageDark={logos?.logoDark}
+            />
+          </div>
+          <DrawerClose
+            render={
+              <Button
+                className="-mr-3 rounded-none focus-visible:outline-offset-0!"
+                size="icon"
+                variant="ghost"
               >
-                <Accordion>
-                  {columns?.map((column) => {
-                    if (column.type === "link") {
-                      if (!column.href) {
-                        return null;
-                      }
-                      return (
-                        <Link
-                          aria-current={
-                            column.href === pathname ? "page" : undefined
-                          }
-                          className="hover-surface focus-ring-inset -mx-3 flex items-center rounded-none px-3 py-3 font-light font-mono text-foreground text-sm uppercase tracking-normal"
-                          href={column.href}
-                          key={column._key}
-                          onClick={closeMenu}
-                        >
-                          {column.name}
-                        </Link>
-                      );
-                    }
+                <XIcon className="size-4" />
+                <span className="sr-only">Close</span>
+              </Button>
+            }
+          />
+        </div>
 
-                    if (column.type === "column") {
-                      return (
-                        <AccordionItem
-                          className="border-b-0"
-                          key={column._key}
-                          value={column._key}
-                        >
-                          <AccordionTrigger className="hover-surface focus-ring-inset -mx-3 rounded-none px-3 py-3 font-light font-mono text-foreground text-sm uppercase tracking-normal hover:no-underline">
-                            {column.title}
-                          </AccordionTrigger>
-                          <AccordionContent>
-                            <div className="ml-1 grid gap-1 border-border border-l-2 pl-4">
-                              {column.links?.map(
-                                (link: Readonly<ColumnLink>) => (
-                                  <MenuLink
-                                    description={link.description || ""}
-                                    href={link.href || ""}
-                                    icon={link.icon}
-                                    key={link._key}
-                                    name={link.name || ""}
-                                    onClick={closeMenu}
-                                  />
-                                )
-                              )}
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-                      );
-                    }
+        <nav
+          aria-label="Main"
+          className="grid flex-1 content-start gap-1 overflow-y-auto px-6 pt-4"
+        >
+          <Accordion>
+            {columns?.map((column) => {
+              if (column.type === "link") {
+                if (!column.href) {
+                  return null;
+                }
+                return (
+                  <Link
+                    aria-current={column.href === pathname ? "page" : undefined}
+                    className="hover-surface focus-ring-inset -mx-3 flex items-center rounded-none px-3 py-3 font-light font-mono text-foreground text-sm uppercase tracking-normal"
+                    href={column.href}
+                    key={column._key}
+                    onClick={closeMenu}
+                  >
+                    {column.name}
+                  </Link>
+                );
+              }
 
-                    return null;
-                  })}
-                </Accordion>
-              </nav>
+              if (column.type === "column") {
+                return (
+                  <AccordionItem
+                    className="border-b-0"
+                    key={column._key}
+                    value={column._key}
+                  >
+                    <AccordionTrigger className="hover-surface focus-ring-inset -mx-3 rounded-none px-3 py-3 font-light font-mono text-foreground text-sm uppercase tracking-normal hover:no-underline">
+                      {column.title}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="ml-1 grid gap-1 border-border border-l-2 pl-4">
+                        {column.links?.map((link: Readonly<ColumnLink>) => (
+                          <MenuLink
+                            description={link.description || ""}
+                            href={link.href || ""}
+                            icon={link.icon}
+                            key={link._key}
+                            name={link.name || ""}
+                            onClick={closeMenu}
+                          />
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              }
 
-              {buttons?.length ? (
-                <div className="mt-auto grid border-t px-6 py-4">
-                  <SanityButtons
-                    buttonClassName="w-full justify-center font-mono font-normal text-sm uppercase tracking-wide"
-                    buttons={buttons || []}
-                    className="grid gap-3"
-                  />
-                </div>
-              ) : null}
-            </DrawerContent>
-          </DrawerPopup>
-        </DrawerViewport>
-      </DrawerPortal>
+              return null;
+            })}
+          </Accordion>
+        </nav>
+
+        {buttons?.length ? (
+          <div className="mt-auto grid border-t px-6 py-4">
+            <SanityButtons
+              buttonClassName="w-full justify-center font-mono font-normal text-sm uppercase tracking-wide"
+              buttons={buttons || []}
+              className="grid gap-3"
+            />
+          </div>
+        ) : null}
+      </DrawerContent>
     </Drawer>
   );
 }

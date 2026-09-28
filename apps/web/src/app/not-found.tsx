@@ -1,4 +1,4 @@
-import { Button } from "@workspace/ui/components/button";
+import { buttonVariants } from "@workspace/ui/components/button";
 import Link from "next/link";
 
 export default function NotFound() {
@@ -22,14 +22,19 @@ export default function NotFound() {
           The page you are looking for does not exist.
         </h2>
 
-        <Button
-          asChild
-          className="h-9 rounded-full px-4 font-mono font-normal text-sm uppercase tracking-wide"
-          size="sm"
-          variant="secondary"
+        <Link
+          className={buttonVariants({
+            size: "sm",
+            variant: "secondary",
+            className:
+              "h-9 rounded-full px-4 font-mono font-normal text-sm uppercase tracking-wide",
+          })}
+          data-slot="button"
+          data-variant="secondary"
+          href="/"
         >
-          <Link href="/">Return home</Link>
-        </Button>
+          Return home
+        </Link>
       </div>
     </main>
   );

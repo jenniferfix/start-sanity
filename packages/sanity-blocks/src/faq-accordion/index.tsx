@@ -73,9 +73,7 @@ function FaqDisclosure({
         DISCLOSURE_BASE_CLASS,
         DISCLOSURE_ANIMATION_CLASS,
         // Open item is a settled surface: no hover wash, by design.
-        isOpen
-          ? "border-transparent bg-zinc-100 dark:bg-zinc-900"
-          : "hover-surface"
+        isOpen ? "border-transparent bg-wash" : "hover-surface"
       )}
       open={initialOpen}
       ref={detailsRef}

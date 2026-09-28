@@ -29,12 +29,11 @@ import type { ColumnLink, NavigationData } from "@/types";
 const TABLET_QUERY = "(min-width: 768px) and (max-width: 1023.98px)";
 const DESKTOP_QUERY = "(min-width: 1024px)";
 
-// The default drawer is a rounded, content-height sheet on `--popover` with
-// `text-sm`; the menu keeps its full-height square panel (28rem from the right)
-// on the page background, at body size. The corners need `!` because the
-// default scopes its radius to `data-swipe-direction`.
+// The default drawer is a content-height sheet on `--popover` with `text-sm`;
+// the menu keeps its full-height panel (28rem from the right) on the page
+// background, at body size.
 const SHEET_CLASS =
-  "h-dvh max-h-none rounded-none! bg-background pb-[env(safe-area-inset-bottom)] text-base data-[swipe-direction=right]:w-md";
+  "h-dvh max-h-none bg-background pb-[env(safe-area-inset-bottom)] text-base data-[swipe-direction=right]:w-md";
 
 export function MobileMenu({
   navbarData,

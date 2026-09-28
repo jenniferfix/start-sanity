@@ -228,7 +228,8 @@ export function portableTextToMarkdown(
         return `[${children}](${formatUrl(absolutizeUrl(href, options.baseUrl))})`;
       },
       // Use CommonMark-compliant fencing (handles embedded backticks).
-      code: ({ children }) => wrapInlineCode(children),
+      // @portabletext/markdown Starting in 2.1.0 needs to pass text instead of children
+      code: ({ text }) => wrapInlineCode(text),
       // Underline has no Markdown equivalent — emit plain text, not `<u>`.
       underline: ({ children }) => children,
     },

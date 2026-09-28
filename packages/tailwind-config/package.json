@@ -12,8 +12,8 @@
   "dependencies": {
     "@tailwindcss/postcss": "catalog:",
     "clsx": "^2.1.1",
+    "tailwind-merge": "^3.7.0",
     "tailwindcss": "catalog:",
-    "tailwind-merge": "^3.6.0",
     "tw-animate-css": "catalog:"
   },
   "devDependencies": {

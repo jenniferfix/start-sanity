@@ -15,14 +15,14 @@
     "@sanity/image-url": "^2.1.1",
     "@workspace/env": "workspace:*",
     "@workspace/sanity-blocks": "workspace:*",
-    "next-sanity": "13.3.3",
+    "next-sanity": "13.3.4",
     "react-is": "catalog:"
   },
   "devDependencies": {
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@workspace/typescript-config": "workspace:*",
-    "next": "16.3.3",
+    "next": "16.3.6",
     "sanity": "catalog:",
     "typescript": "catalog:"
   },

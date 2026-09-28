@@ -10,12 +10,12 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@base-ui/react": "^1.8.0",
+    "@base-ui/react": "catalog:",
     "@phosphor-icons/react": "catalog:",
-    "@radix-ui/react-slot": "^1.3.3",
-    "@tailwindcss/typography": "^0.5.20",
+    "@radix-ui/react-slot": "catalog:",
+    "@tailwindcss/typography": "catalog:",
     "@workspace/tailwind-config": "workspace:*",
-    "class-variance-authority": "^0.7.1",
+    "class-variance-authority": "catalog:",
     "cn": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",

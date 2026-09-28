@@ -2,7 +2,7 @@
 
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import { CaretDownIcon } from "@phosphor-icons/react/dist/ssr/CaretDown";
-import { cn } from "@workspace/tailwind-config/utils";
+import { cn } from "cn";
 import type * as React from "react";
 
 function Accordion({

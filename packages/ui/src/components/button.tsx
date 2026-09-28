@@ -1,6 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
-import { cn } from "@workspace/tailwind-config/utils";
 import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "cn";
 import type * as React from "react";
 
 const buttonVariants = cva(

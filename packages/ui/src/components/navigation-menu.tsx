@@ -2,8 +2,8 @@
 
 import { NavigationMenu as NavMenuPrimitive } from "@base-ui/react/navigation-menu";
 import { CaretDownIcon } from "@phosphor-icons/react/dist/ssr/CaretDown";
-import { cn } from "@workspace/tailwind-config/utils";
 import { cva } from "class-variance-authority";
+import { cn } from "cn";
 import type * as React from "react";
 
 function NavigationMenu({

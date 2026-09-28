@@ -1,7 +1,7 @@
 "use client";
 
 import { Drawer as DrawerPrimitive } from "@base-ui/react/drawer";
-import { cn } from "@workspace/tailwind-config/utils";
+import { cn } from "cn";
 import type * as React from "react";
 
 function Drawer(props: React.ComponentProps<typeof DrawerPrimitive.Root>) {
